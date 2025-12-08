@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  media-sorter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: media-sorter:dev
+    env_file:
+      - .env
+    environment:
+      - TMDB_API_KEY=${TMDB_API_KEY}
+      - WATCH_DIR=${WATCH_DIR}
+      - SERIES_DIR=${SERIES_DIR}
+      - MOVIES_DIR=${MOVIES_DIR}
+      - CONFIG_DIR=${CONFIG_DIR}
+      - WATCHER_POLLING=${WATCHER_POLLING:-0}
+    volumes:
+      - ./dev-media:/media:rw
+      - ./dev-config:/config:rw
+    working_dir: /app
+    command: ["python", "sorter.py"]
+    restart: unless-stopped
+    tty: true

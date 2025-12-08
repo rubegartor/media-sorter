@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Entornos virtuales
+venv/
+.venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Docker
+.docker/
+
+# Archivos de entorno
+.env
+.env.local
+
+# Git
+.git/
+.gitignore
+
+# Documentación
+*.md
+LICENSE
+
+# Development directories not for image context
+dev-config/
+dev-media/
+
+# Logs, DBs, caches and test artifacts
+*.log
+*.sqlite3
+.cache/
+.pytest_cache/
+.mypy_cache/
+.tox/
+coverage.xml
+htmlcov/
+
+# Other build artifacts
+pip-wheel-metadata/
+*.egg
