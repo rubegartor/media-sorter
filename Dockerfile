@@ -11,7 +11,8 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar el código fuente
-COPY . /app/
+COPY src/ /app/src/
+COPY run.py /app/
 
 # Ejecutar el sorter
-CMD ["python", "sorter.py"]
+CMD ["python", "run.py"]

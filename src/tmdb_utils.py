@@ -1,5 +1,5 @@
 import logging
-from config import TMDB_API_KEY
+from src.config import TMDB_API_KEY
 import tmdbsimple as tmdb
 
 if TMDB_API_KEY:

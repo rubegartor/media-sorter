@@ -19,6 +19,6 @@ services:
       - ./dev-media:/media:rw
       - ./dev-config:/config:rw
     working_dir: /app
-    command: ["python", "sorter.py"]
+    command: ["python", "run.py"]
     restart: unless-stopped
     tty: true

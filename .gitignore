@@ -41,7 +41,6 @@ hardlinks.json
 *hardlinks*.json
 *links*.json
 test_hardlinks.json
-*.log
 
 # Development directories
 dev-config/

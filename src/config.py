@@ -64,10 +64,22 @@ for _var_name, _path_str in (('WATCH_DIR', WATCH_DIR), ('SERIES_DIR', SERIES_DIR
         logging.error("❌ %s no existe o no es un directorio: %s", _var_name, _path_str)
         sys.exit(1)
 
-# Comprobar existencia del archivo de hardlinks
+# Asegurar que el directorio CONFIG_DIR existe
+_config_dir_path = Path(CONFIG_DIR)
+if not _config_dir_path.exists():
+    logging.info("📁 Creando directorio de configuración: %s", CONFIG_DIR)
+    _config_dir_path.mkdir(parents=True, exist_ok=True)
+elif not _config_dir_path.is_dir():
+    logging.error("❌ CONFIG_DIR existe pero no es un directorio: %s", CONFIG_DIR)
+    sys.exit(1)
+
+# Crear archivo de hardlinks si no existe
 _hardlinks_path = HARDLINKS_DB_PATH
-if not _hardlinks_path.exists() or not _hardlinks_path.is_file():
-    logging.error("❌ Archivo de hardlinks no encontrado o no es un archivo regular: %s", _hardlinks_path)
+if not _hardlinks_path.exists():
+    logging.info("📝 Creando archivo de hardlinks: %s", _hardlinks_path)
+    _hardlinks_path.write_text('{}', encoding='utf-8')
+elif not _hardlinks_path.is_file():
+    logging.error("❌ La ruta de hardlinks existe pero no es un archivo: %s", _hardlinks_path)
     sys.exit(1)
 
 logging.info("ℹ️ Config rutas: WATCH_DIR=%s, SERIES_DIR=%s, MOVIES_DIR=%s, CONFIG_DIR=%s",

@@ -9,7 +9,7 @@ class LinkManager:
 
     def __init__(self):
         """Inicializa el LinkManager."""
-        from config import HARDLINKS_DB_PATH
+        from src.config import HARDLINKS_DB_PATH
         db_path = HARDLINKS_DB_PATH
 
         # Normalizar a ruta absoluta

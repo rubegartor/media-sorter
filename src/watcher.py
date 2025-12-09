@@ -4,10 +4,10 @@ import logging
 from watchdog.observers import Observer
 from watchdog.observers.polling import PollingObserver
 from watchdog.events import FileSystemEventHandler, FileSystemEvent
-from config import WATCH_DIR, VIDEO_EXTENSIONS
-from scanner import scan_and_classify
-from organizer import organize_items
-from link_manager import LinkManager
+from src.config import WATCH_DIR, VIDEO_EXTENSIONS
+from src.scanner import scan_and_classify
+from src.organizer import organize_items
+from src.link_manager import LinkManager
 
 
 def _process_new_files(files: list):

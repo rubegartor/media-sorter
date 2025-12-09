@@ -1,12 +1,17 @@
+#!/usr/bin/env python3
+import sys
+import os
 import logging
-from scanner import scan_and_classify
-from organizer import organize_items, set_link_manager
-from config import WATCH_DIR, TMDB_API_KEY, SERIES_DIR, MOVIES_DIR
-from link_manager import LinkManager
-from watcher import start_watching
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 if __name__ == "__main__":
+    from src.scanner import scan_and_classify
+    from src.organizer import organize_items, set_link_manager
+    from src.config import WATCH_DIR, TMDB_API_KEY, SERIES_DIR, MOVIES_DIR
+    from src.link_manager import LinkManager
+    from src.watcher import start_watching
+
     logging.info("=" * 50)
     logging.info(f"📁 Watch dir : {WATCH_DIR}")
     logging.info(f"📺 Series dir: {SERIES_DIR}")
@@ -43,5 +48,4 @@ if __name__ == "__main__":
 
     # Iniciar vigilancia continua
     start_watching(link_manager)
-
 

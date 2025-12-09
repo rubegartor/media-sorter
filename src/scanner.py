@@ -3,8 +3,8 @@ import logging
 import re
 import unicodedata
 from guessit import guessit
-from config import WATCH_DIR, VIDEO_EXTENSIONS
-from tmdb_utils import get_official_movie_title, get_official_series_title
+from src.config import WATCH_DIR, VIDEO_EXTENSIONS
+from src.tmdb_utils import get_official_movie_title, get_official_series_title
 
 
 def _normalize_title_for_cache(title):
